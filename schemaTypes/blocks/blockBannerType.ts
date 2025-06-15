@@ -2,6 +2,7 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'blockBanner',
+  title: 'Block Banner',
   type: 'object',
   fields: [
     defineField({
@@ -18,10 +19,14 @@ export default defineType({
       type: 'blockContent',
     }),
     defineField({
-      name: 'button',
-      title: 'Button',
-      type: 'reference',
-      to: [{type: 'button'}],
+      name: 'image',
+      type: 'image',
+    }),
+    defineField({
+      name: 'styles',
+      type: 'styleSettings',
+      title: 'Style Settings',
+      description: 'Visual styling options for this block',
     }),
   ],
 })

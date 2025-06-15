@@ -6,6 +6,11 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'label',
+      type: 'string',
+      description: 'Internal label for this block',
+    }),
+    defineField({
       name: 'title',
       title: 'Grid Title',
       type: 'string',
@@ -18,6 +23,12 @@ export default defineType({
       of: [{type: 'reference', to: [{type: 'mediaImage'}]}],
       validation: (Rule) => Rule.required().min(1),
       description: 'Add images to the grid',
+    }),
+    defineField({
+      name: 'styles',
+      type: 'styleSettings',
+      title: 'Style Settings',
+      description: 'Visual styling options for this block',
     }),
   ],
   preview: {

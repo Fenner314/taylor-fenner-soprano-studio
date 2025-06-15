@@ -17,28 +17,40 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'url',
+      title: 'Video URL',
+      type: 'url',
+      description: 'YouTube or Vimeo URL',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
     }),
     defineField({
-      name: 'videoUrl',
-      title: 'Video URL',
-      type: 'url',
-      validation: (Rule) => Rule.required(),
+      name: 'organization',
+      title: 'Organization',
+      type: 'string',
+    }),
+    defineField({
+      name: 'styles',
+      type: 'styleSettings',
+      title: 'Style Settings',
+      description: 'Visual styling options for this block',
     }),
   ],
-
   preview: {
     select: {
       title: 'title',
-      description: 'description',
+      url: 'url',
+      organization: 'organization',
     },
     prepare(selection) {
-      const {title, description} = selection
+      const {title, url, organization} = selection
       return {
         title: title,
-        subtitle: `${description ? description.substring(0, 40) + '... - ' : ''}`,
+        subtitle: `${organization ? organization + ' - ' : ''}${url}`,
       }
     },
   },

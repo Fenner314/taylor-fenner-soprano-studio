@@ -11,6 +11,7 @@ import eventType from './blocks/eventType'
 import blockBannerType from './blocks/blockBannerType'
 import downloadsType from './blocks/downloadsType'
 import customComponentType from './blocks/customComponentType'
+import styleSettings from './objects/styleSettings'
 
 export const schemaTypes = [
   blockContentType,
@@ -26,4 +27,5 @@ export const schemaTypes = [
   downloadItemType,
   downloadsType,
   customComponentType,
+  styleSettings,
 ]

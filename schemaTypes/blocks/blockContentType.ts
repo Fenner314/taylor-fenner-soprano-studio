@@ -61,6 +61,12 @@ export default defineType({
         }),
       ],
     },
+    {
+      name: 'styles',
+      type: 'styleSettings',
+      title: 'Style Settings',
+      description: 'Visual styling options for this block',
+    },
   ],
   preview: {
     select: {

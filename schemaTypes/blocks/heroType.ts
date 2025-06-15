@@ -21,5 +21,17 @@ export default defineType({
       name: 'image',
       type: 'image',
     }),
+    defineField({
+      name: 'parallax',
+      type: 'boolean',
+      description: 'Enable parallax scrolling effect',
+      initialValue: false,
+    }),
+    defineField({
+      name: 'styles',
+      type: 'styleSettings',
+      title: 'Style Settings',
+      description: 'Visual styling options for this block',
+    }),
   ],
 })

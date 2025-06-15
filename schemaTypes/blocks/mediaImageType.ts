@@ -37,19 +37,34 @@ export default defineType({
     }),
     defineField({
       name: 'styles',
-      title: 'Custom Styles',
+      type: 'styleSettings',
+      title: 'Style Settings',
+      description: 'Visual styling options for this block',
+    }),
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'string',
+      description: 'Choose a background color (optional)',
+      options: {
+        list: [
+          {title: 'None', value: ''},
+          {title: 'Primary', value: 'var(--primary)'},
+          {title: 'Secondary', value: 'var(--secondary)'},
+          {title: 'Accent', value: 'var(--accent)'},
+          {title: 'Dark', value: 'var(--bg-dark)'},
+          {title: 'Light', value: 'var(--bg-light)'},
+          {title: 'Gray', value: 'var(--gray)'},
+        ],
+        direction: 'horizontal',
+        layout: 'radio',
+      },
+    }),
+    defineField({
+      name: 'customCSS',
       type: 'text',
-      description: 'Add CSS styles as a JSON object (e.g. {"objectPosition": "top center"})',
-      validation: (Rule) =>
-        Rule.custom((text: string | undefined) => {
-          if (!text) return true
-          try {
-            JSON.parse(text)
-            return true
-          } catch (err) {
-            return 'Must be valid JSON'
-          }
-        }),
+      description: 'Add custom CSS styles (optional)',
+      rows: 3,
     }),
   ],
 

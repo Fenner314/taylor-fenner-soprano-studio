@@ -11,22 +11,31 @@ export default defineType({
       description: 'Internal label for this block',
     }),
     defineField({
-      name: 'title',
-      title: 'Title',
+      name: 'componentName',
       type: 'string',
-      description: 'Optional title for this section',
-    }),
-    defineField({
-      name: 'component',
-      title: 'Component',
-      type: 'string',
+      description: 'Name of the React component to render',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'props',
-      title: 'Component Props',
       type: 'text',
-      description:
-        'Optional JSON object with props for the component (e.g., {"maxItems": 4, "featured": true})',
+      description: 'Component props as JSON (optional)',
+      validation: (Rule) =>
+        Rule.custom((text: string | undefined) => {
+          if (!text) return true
+          try {
+            JSON.parse(text)
+            return true
+          } catch (err) {
+            return 'Must be valid JSON'
+          }
+        }),
+    }),
+    defineField({
+      name: 'styles',
+      type: 'styleSettings',
+      title: 'Style Settings',
+      description: 'Visual styling options for this block',
     }),
   ],
 
