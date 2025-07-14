@@ -17,7 +17,7 @@ export default defineType({
       description: 'Title for this downloads section (optional)',
     }),
     defineField({
-      name: 'downloads',
+      name: 'items',
       title: 'Download Items',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'downloadItem'}]}],
