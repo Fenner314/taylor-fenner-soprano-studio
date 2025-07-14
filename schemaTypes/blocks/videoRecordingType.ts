@@ -26,7 +26,7 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text',
+      type: 'blockContent',
     }),
     defineField({
       name: 'organization',
